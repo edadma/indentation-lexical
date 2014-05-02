@@ -1,0 +1,1 @@
+//"org.fusesource.scalate" % "sbt-scalate-plugin_2.10" % "1.6.1"
