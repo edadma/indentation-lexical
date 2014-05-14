@@ -1,1 +1,1 @@
-//"org.fusesource.scalate" % "sbt-scalate-plugin_2.10" % "1.6.1"
+addSbtPlugin("com.typesafe.sbt" % "sbt-pgp" % "0.8.3")

@@ -62,7 +62,7 @@ object ToyParser extends StandardTokenParsers with PackratParsers
 
 	lazy val source =
 		(statement+) |
-		Newline ^^^ List( (null, null) )
+		accept(Newline) ^^^ List( (null, null) )
 
 	lazy val statement: PackratParser[Any] =
 		ident ~ "=" ~ expr ~ Newline ^^ {case v ~ _ ~ e ~ _ => ("#assign", (v, e))} |
@@ -129,5 +129,5 @@ object ToyParser extends StandardTokenParsers with PackratParsers
 		"[" ~> repsep(expr, ",") <~ "]" ^^ {case l => ("#list", l)} |
 		ident ^^ {case v => ("#var", v)} |
 		"(" ~> expr <~ ")" |
-		Indent ~> (statement+) <~ Dedent ^^ {case s => ("#block", s)}
+		accept(Indent) ~> (statement+) <~ Dedent ^^ {case s => ("#block", s)}
 }
