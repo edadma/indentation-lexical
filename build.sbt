@@ -1,6 +1,6 @@
 name := "indentation-lexical"
 
-version := "0.1-SNAPSHOT"
+version := "0.1"
 
 scalaVersion := "2.11.2"
 
@@ -10,7 +10,9 @@ incOptions := incOptions.value.withNameHashing(true)
 
 organization := "org.funl-lang"
 
-resolvers += Resolver.sonatypeRepo( "snapshots" )
+//resolvers += Resolver.sonatypeRepo( "snapshots" )
+
+resolvers += "Hyperreal Repository" at "http://hyperreal.ca/maven2"
 
 libraryDependencies ++= Seq(
 	"org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.2"
@@ -21,7 +23,7 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "2.1.3" % "test"
 libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.11.3" % "test"
 
 libraryDependencies ++= Seq(
-	"org.funl-lang" %% "lia" % "0.11-SNAPSHOT"
+	"org.funl-lang" %% "lia" % "0.11"
 	)
 
 
