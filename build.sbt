@@ -1,8 +1,8 @@
 name := "indentation-lexical"
 
-version := "0.1"
+version := "0.2"
 
-scalaVersion := "2.11.2"
+scalaVersion := "2.11.4"
 
 scalacOptions ++= Seq( "-deprecation", "-feature", "-language:postfixOps", "-language:implicitConversions", "-language:existentials" )
 
@@ -23,7 +23,7 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "2.1.3" % "test"
 libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.11.3" % "test"
 
 libraryDependencies ++= Seq(
-	"org.funl-lang" %% "lia" % "0.12"
+	"org.funl-lang" %% "lia" % "0.13"
 	)
 
 
