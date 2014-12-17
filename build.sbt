@@ -1,6 +1,6 @@
 name := "indentation-lexical"
 
-version := "0.2"
+version := "0.3"
 
 scalaVersion := "2.11.4"
 
@@ -23,7 +23,7 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "2.1.3" % "test"
 libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.11.3" % "test"
 
 libraryDependencies ++= Seq(
-	"org.funl-lang" %% "lia" % "0.13"
+	"org.funl-lang" %% "lia" % "0.14"
 	)
 
 
@@ -35,7 +35,7 @@ publishArtifact in Test := false
 
 pomIncludeRepository := { _ => false }
 
-licenses := Seq("LGPL" -> url("http://opensource.org/licenses/LGPL-3.0"))
+licenses := Seq("MIT" -> url("http://opensource.org/licenses/MIT"))
 
 homepage := Some(url("https://github.com/FunL/indentation-lexical"))
 

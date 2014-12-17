@@ -41,7 +41,7 @@ object ToyInterpreter
 			case ("double", List(a)) => neval( a ).doubleValue
 			case ("decimal", List(a)) => Math.toBigDecimal( neval(a) )
 			case ("#var", v: String) => vars(v)
-			case (o @ ("+" | "-" | "*" | "/" | "^" | "="), (l, r)) => Math( Symbol(o.asInstanceOf[String]), eval(l), eval(r) )
+			case (o @ ("+" | "-" | "*" | "/" | "^" | "=="), (l, r)) => Math( Symbol(o.asInstanceOf[String]), eval(l), eval(r) )
 			case ("-", e) => Math( '-, eval(e) )
 			case ("#list", l: List[Any]) =>
 				val buf = new ListBuffer[Any]

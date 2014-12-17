@@ -14,14 +14,8 @@ a =
   123
 print( a )
 """
-// """
-// 1
-// 	2
-// 		3
-// 4
-// """
 
-	var r = ToyParser.lexical.read( new CharSequenceReader(code) )
+//	var r = ToyParser.lexical.read( new CharSequenceReader(code) )
 	
 // 	while (!r.atEnd)
 // 	{

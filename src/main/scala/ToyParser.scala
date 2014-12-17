@@ -10,7 +10,7 @@ import util.parsing.input.Reader
 
 object ToyParser extends StandardTokenParsers with PackratParsers
 {
-	override val lexical =
+	override val lexical: IndentationLexical =
 		new IndentationLexical( false, true, List("[", "("), List("]", ")") )
 		{
 			override def token: Parser[Token] = decimalParser | super.token
@@ -51,7 +51,7 @@ object ToyParser extends StandardTokenParsers with PackratParsers
 				}
 
 			reserved += ("if", "then", "else", "elif", "true", "false", "or", "and", "not")
-			delimiters += ("+", "*", "-", "/", "^", "(", ")", "[", "]", ",", "=", "/=", "<", ">", "<=", ">=")
+			delimiters += ("+", "*", "-", "/", "^", "(", ")", "[", "]", ",", "=", "==", "/=", "<", ">", "<=", ">=")
 		}
 
 	def parse( r: Reader[Char] ) = phrase( source )( lexical.read(r) )
@@ -92,7 +92,7 @@ object ToyParser extends StandardTokenParsers with PackratParsers
 	expr7c
 
 	lazy val expr7c: PackratParser[Any] =
-		expr10 ~ ("=" | "/=" | "<" | ">" | "<=" | ">=") ~ expr10 ^^
+		expr10 ~ ("==" | "/=" | "<" | ">" | "<=" | ">=") ~ expr10 ^^
 			{case l ~ o ~ r => (o, (l, r))} |
 		expr10
 

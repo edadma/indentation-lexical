@@ -49,16 +49,16 @@ class Tests extends FreeSpec with PropertyChecks with Matchers
 	"parsing" in
 	{
 		parse( "123 + 5" ) shouldBe 128
-// 		parse(
-// """
-// a = 3
-// b = 4
-// c =
-// 	if a + b == 7 then
-// 		5a
-// 
-// c
-// """
-// 		) shouldBe 15
+		parse(
+			"""
+			|a = 3
+			|b = 4
+			|c =
+			|	if a + b == 7 then
+			|		5a
+			|
+			|c
+			|""".stripMargin
+		) shouldBe 15
 	}
 }
