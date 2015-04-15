@@ -2,20 +2,20 @@ name := "indentation-lexical"
 
 version := "0.3"
 
-scalaVersion := "2.11.4"
+scalaVersion := "2.11.6"
 
 scalacOptions ++= Seq( "-deprecation", "-feature", "-language:postfixOps", "-language:implicitConversions", "-language:existentials" )
 
 incOptions := incOptions.value.withNameHashing(true)
 
-organization := "org.funl-lang"
+organization := "ca.hyperreal"
 
 //resolvers += Resolver.sonatypeRepo( "snapshots" )
 
 resolvers += "Hyperreal Repository" at "http://hyperreal.ca/maven2"
 
 libraryDependencies ++= Seq(
-	"org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.2"
+	"org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.3"
 	)
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "2.1.3" % "test"
@@ -23,13 +23,15 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "2.1.3" % "test"
 libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.11.3" % "test"
 
 libraryDependencies ++= Seq(
-	"org.funl-lang" %% "lia" % "0.14"
+	"ca.hyperreal" %% "lia" % "0.15"
 	)
 
 
+seq(bintraySettings:_*)
+
 publishMavenStyle := true
 
-publishTo := Some( Resolver.sftp( "private", "hyperreal.ca", "/var/www/hyperreal.ca/maven2" ) )
+//publishTo := Some( Resolver.sftp( "private", "hyperreal.ca", "/var/www/hyperreal.ca/maven2" ) )
 
 publishArtifact in Test := false
 
