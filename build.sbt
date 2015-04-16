@@ -12,7 +12,7 @@ organization := "ca.hyperreal"
 
 //resolvers += Resolver.sonatypeRepo( "snapshots" )
 
-//resolvers += "Hyperreal Repository" at "http://hyperreal.ca/maven2"
+resolvers += "Hyperreal Repository" at "https://dl.bintray.com/edadma/maven"
 
 libraryDependencies ++= Seq(
 	"org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.3"
