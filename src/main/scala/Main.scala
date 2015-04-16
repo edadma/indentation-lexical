@@ -1,8 +1,8 @@
-package funl.indentation
+package ca.hyperreal.indentation
 
 import util.parsing.input.CharSequenceReader
 
-import funl.lia._
+import ca.hyperreal.lia._
 
 
 object Main extends App

@@ -1,4 +1,4 @@
-package funl.indentation
+package ca.hyperreal.indentation
 
 import util.parsing.combinator.lexical.StdLexical
 import util.parsing.combinator.token.Tokens

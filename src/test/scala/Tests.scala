@@ -1,4 +1,4 @@
-package funl.indentation
+package ca.hyperreal.indentation
 
 import util.parsing.input.CharSequenceReader
 

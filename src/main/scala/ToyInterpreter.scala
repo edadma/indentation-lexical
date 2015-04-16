@@ -1,8 +1,8 @@
-package funl.indentation
+package ca.hyperreal.indentation
 
 import collection.mutable.{HashMap, ListBuffer}
 
-import funl.lia._
+import ca.hyperreal.lia._
 
 
 object ToyInterpreter
