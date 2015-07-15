@@ -7,7 +7,7 @@ import collection.mutable.{ListBuffer, ArrayStack}
 
 
 class IndentationLexical( newlineBeforeIndent: Boolean, newlineAfterDedent: Boolean,
-	startLineJoining: List[String], endLineJoining: List[String] ) extends StdLexical
+	startLineJoining: List[String], endLineJoining: List[String], lineComment: String, blockCommentStart: String, blockCommentEnd: String ) extends StdLexical
 {
 	private val level = new ArrayStack[Int]
 	private var state: Int = _
@@ -38,6 +38,18 @@ class IndentationLexical( newlineBeforeIndent: Boolean, newlineAfterDedent: Bool
 		buf.toList
 	}
 
+	private def matches( r: Input, s: String ): Boolean = {
+		var input = r
+		
+		for (i <- 0 until s.length)
+			if (!input.atEnd && s.charAt( i ) == input.first)
+				input = input.rest
+			else
+				return false
+		
+		true
+	}
+	
 	private def skip( r: Input, pred: Input => Boolean ): Input =
 		if (pred( r ))
 			r
@@ -59,7 +71,7 @@ class IndentationLexical( newlineBeforeIndent: Boolean, newlineAfterDedent: Bool
 				r1
 			else if (r1.first == '\n')
 				skipBlankLines( r1.rest )
-			else if (r1.first == '/' && !r1.rest.atEnd && r1.rest.first == '/')
+			else if (matches( r1, lineComment ))
 			{
 			val r2 = skipToEOL( r1.rest.rest )
 
@@ -68,9 +80,9 @@ class IndentationLexical( newlineBeforeIndent: Boolean, newlineAfterDedent: Bool
 				else
 					skipBlankLines( r2.rest )
 			}
-			else if (r1.first == '/' && !r1.rest.atEnd && r1.rest.first == '*')
+			else if (matches( r1, blockCommentStart ))
 			{
-			val r2 = skip( r1.rest.rest, a => !a.atEnd && a.first == '*' && !a.rest.atEnd && a.rest.first == '/' )
+			val r2 = skip( r1.rest.rest, a => matches( a, blockCommentEnd ))
 
 				if (r2.atEnd) sys.error( "unclosed comment " + r1.pos )
 

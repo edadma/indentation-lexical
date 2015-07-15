@@ -2,8 +2,9 @@ package ca.hyperreal.indentation
 
 import java.{lang => boxed}
 
-import scala.util.parsing.combinator.PackratParsers
-import scala.util.parsing.combinator.syntactical.StandardTokenParsers
+import util.parsing.combinator.PackratParsers
+import util.parsing.combinator.syntactical.StandardTokenParsers
+import util.parsing.input.CharArrayReader.EofCh
 import util.parsing.combinator.lexical.StdLexical
 import util.parsing.input.Reader
 
@@ -11,10 +12,19 @@ import util.parsing.input.Reader
 object ToyParser extends StandardTokenParsers with PackratParsers
 {
 	override val lexical: IndentationLexical =
-		new IndentationLexical( false, true, List("[", "("), List("]", ")") )
+		new IndentationLexical( false, true, List("[", "("), List("]", ")"), ";;", "/*", "*/" )
 		{
 			override def token: Parser[Token] = decimalParser | super.token
 
+			override def identChar = letter | elem('_') | elem('$')
+			
+			override def whitespace: Parser[Any] = rep[Any](
+				whitespaceChar
+				| '/' ~ '*' ~ comment
+				| ';' ~ ';' ~ rep( chrExcept(EofCh, '\n') )
+				| '/' ~ '*' ~ failure("unclosed comment")
+				)
+			
 			private def decimalParser: Parser[Token] =
 				rep1(digit) ~ optFraction ~ optExponent ^^
 					{case intPart ~ frac ~ exp =>

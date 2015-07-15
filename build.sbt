@@ -1,6 +1,6 @@
 name := "indentation-lexical"
 
-version := "0.3"
+version := "0.5"
 
 scalaVersion := "2.11.6"
 

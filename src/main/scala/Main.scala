@@ -9,10 +9,10 @@ object Main extends App
 {
  	val code =
 """
-a =
+$a =
  if true then
   123
-print( a )
+print( $a )
 """
 
 //	var r = ToyParser.lexical.read( new CharSequenceReader(code) )

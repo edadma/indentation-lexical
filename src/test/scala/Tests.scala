@@ -8,7 +8,7 @@ import prop.PropertyChecks
 
 class Tests extends FreeSpec with PropertyChecks with Matchers
 {
-	val l = new IndentationLexical( false, true, List("[", "("), List("]", ")") )
+	val l = new IndentationLexical( false, true, List("[", "("), List("]", ")"), ";;", "/*", "*/" )
 
 	case class PARSE_FAILURE( msg: String )
 	
@@ -51,7 +51,7 @@ class Tests extends FreeSpec with PropertyChecks with Matchers
 		parse( "123 + 5" ) shouldBe 128
 		parse(
 			"""
-			|a = 3
+			|a = 3 ;; asdf
 			|b = 4
 			|c =
 			|	if a + b == 7 then
