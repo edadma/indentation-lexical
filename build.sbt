@@ -1,6 +1,6 @@
 name := "indentation-lexical"
 
-version := "0.5"
+version := "0.4"
 
 scalaVersion := "2.11.6"
 
@@ -23,7 +23,7 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "2.1.3" % "test"
 libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.11.3" % "test"
 
 libraryDependencies ++= Seq(
-	"ca.hyperreal" %% "lia" % "0.15"
+	"ca.hyperreal" %% "lia" % "0.17"
 	)
 
 
