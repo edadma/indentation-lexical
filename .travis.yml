@@ -1,3 +1,6 @@
+before_install:
+  - sudo hostname "$(hostname | cut -c1-63)"
+
 language: scala
 
 scala:
