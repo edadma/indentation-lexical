@@ -46,8 +46,7 @@ object ToyInterpreter
 			case ("#list", l: List[Any]) =>
 				val buf = new ListBuffer[Any]
 
-					for (e <- l)
-						buf append eval( e )
+				l map (e => buf append eval( e ))
 
 				buf.toList
 			case ("#block", s: List[Any]) => run( s )
@@ -58,12 +57,11 @@ object ToyInterpreter
 		}
 
 	def run( t: List[Any] ): Any =
-	{
-	var res: Any = null
-
-		for (s <- t)
-			res = eval( s )
-
-		res
-	}
+		t match {
+			case Nil => null
+			case List( s ) => eval( s )
+			case s :: tail =>
+				eval( s )
+				run( tail )
+		}
 }

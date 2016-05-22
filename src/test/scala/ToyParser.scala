@@ -9,7 +9,7 @@ import util.parsing.combinator.lexical.StdLexical
 import util.parsing.input.Reader
 
 
-object ToyParser extends StandardTokenParsers with PackratParsers
+class ToyParser extends StandardTokenParsers with PackratParsers
 {
 	override val lexical: IndentationLexical =
 		new IndentationLexical( false, true, List("[", "("), List("]", ")"), ";;", "/*", "*/" )

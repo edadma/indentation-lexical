@@ -14,13 +14,15 @@ class Tests extends FreeSpec with PropertyChecks with Matchers
 	
 	def parse( s: String ) =
 	{
-		ToyParser.parse( new CharSequenceReader(s) ) match
+	val p = new ToyParser
+	
+ 		p.parse( new CharSequenceReader(s) ) match
 		{
-			case ToyParser.Success( tree, _ ) => ToyInterpreter( tree )
-			case ToyParser.NoSuccess( error, _ ) => PARSE_FAILURE( error )
+			case p.Success( tree, _ ) => ToyInterpreter( tree )
+			case p.NoSuccess( error, _ ) => PARSE_FAILURE( error )
 		}
 	}
-
+	
 	import l.{Newline => nl, Indent => ind, Dedent => ded, num}
 
 	"newlines" in
@@ -49,6 +51,7 @@ class Tests extends FreeSpec with PropertyChecks with Matchers
 	"parsing" in
 	{
 		parse( "123 + 5" ) shouldBe 128
+		parse( "[1, 2, 3]" ) shouldBe List( 1, 2, 3 )
 		parse(
 			"""
 			|a = 3 ;; asdf
@@ -58,7 +61,6 @@ class Tests extends FreeSpec with PropertyChecks with Matchers
 			|		5a
 			|
 			|c
-			|""".stripMargin
-		) shouldBe 15
+			|""".stripMargin ) shouldBe 15
 	}
 }

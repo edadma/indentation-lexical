@@ -1,8 +1,8 @@
 name := "indentation-lexical"
 
-version := "0.4"
+version := "0.5"
 
-scalaVersion := "2.11.6"
+scalaVersion := "2.11.8"
 
 scalacOptions ++= Seq( "-deprecation", "-feature", "-language:postfixOps", "-language:implicitConversions", "-language:existentials" )
 
@@ -15,15 +15,15 @@ organization := "ca.hyperreal"
 resolvers += "Hyperreal Repository" at "https://dl.bintray.com/edadma/maven"
 
 libraryDependencies ++= Seq(
-	"org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.3"
+	"org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.4"
 	)
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "2.1.3" % "test"
+libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.6" % "test"
 
-libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.11.3" % "test"
+libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.12.5" % "test"
 
 libraryDependencies ++= Seq(
-	"ca.hyperreal" %% "lia" % "0.17"
+	"ca.hyperreal" %% "lia" % "0.17" % "test"
 	)
 
 
