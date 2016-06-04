@@ -1,8 +1,9 @@
-package ca.hyperreal.indentation
+package xyz.hyperreal.indentation
 
 import collection.mutable.{HashMap, ListBuffer}
 
-import ca.hyperreal.lia._
+import xyz.hyperreal.numbers.ComplexDouble
+import xyz.hyperreal.lia._
 
 
 object ToyInterpreter
@@ -14,7 +15,7 @@ object ToyInterpreter
 		vars = new HashMap
 		vars("e") = math.E
 		vars("pi") = math.Pi
-		vars("i") = Complex( 0, 1 )
+		vars("i") = ComplexDouble.i
 
 		run( t )
 	}

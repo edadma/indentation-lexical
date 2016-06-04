@@ -8,7 +8,7 @@ scalacOptions ++= Seq( "-deprecation", "-feature", "-language:postfixOps", "-lan
 
 incOptions := incOptions.value.withNameHashing(true)
 
-organization := "ca.hyperreal"
+organization := "xyz.hyperreal"
 
 //resolvers += Resolver.sonatypeRepo( "snapshots" )
 
@@ -23,7 +23,8 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.6" % "test"
 libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.12.5" % "test"
 
 libraryDependencies ++= Seq(
-	"ca.hyperreal" %% "lia" % "0.17" % "test"
+	"xyz.hyperreal" %% "numbers" % "0.1" % "test",
+	"xyz.hyperreal" %% "lia" % "0.18" % "test"
 	)
 
 

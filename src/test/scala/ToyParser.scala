@@ -1,4 +1,4 @@
-package ca.hyperreal.indentation
+package xyz.hyperreal.indentation
 
 import java.{lang => boxed}
 
