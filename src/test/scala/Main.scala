@@ -1,4 +1,4 @@
-package xyz.hyperreal.indentation
+package xyz.hyperreal.indentation_lexical
 
 import collection.immutable.PagedSeq
 import util.parsing.input.PagedSeqReader

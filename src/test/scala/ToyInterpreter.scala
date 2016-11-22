@@ -1,4 +1,4 @@
-package xyz.hyperreal.indentation
+package xyz.hyperreal.indentation_lexical
 
 import collection.mutable.{HashMap, ListBuffer}
 

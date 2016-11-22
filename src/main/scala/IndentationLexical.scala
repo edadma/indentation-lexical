@@ -1,4 +1,4 @@
-package xyz.hyperreal.indentation
+package xyz.hyperreal.indentation_lexical
 
 import util.parsing.combinator.lexical.StdLexical
 import util.parsing.combinator.token.Tokens
