@@ -1,10 +1,10 @@
 name := "indentation-lexical"
 
-version := "0.7"
+version := "0.8"
 
-scalaVersion := "2.12.1"
+scalaVersion := "2.12.2"
 
-crossScalaVersions := Seq( "2.11.8" )
+crossScalaVersions := Seq( "2.11.11" )
 
 scalacOptions ++= Seq( "-deprecation", "-feature", "-language:postfixOps", "-language:implicitConversions", "-language:existentials" )
 
@@ -33,8 +33,8 @@ libraryDependencies ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-	"xyz.hyperreal" %% "numbers" % "0.3" % "test",
-	"xyz.hyperreal" %% "lia" % "0.20" % "test"
+	"xyz.hyperreal" %% "numbers" % "0.4" % "test",
+	"xyz.hyperreal" %% "lia" % "0.21" % "test"
 )
 
 mainClass in (Compile, run) := Some( "xyz.hyperreal." + name.value + ".Main" )
