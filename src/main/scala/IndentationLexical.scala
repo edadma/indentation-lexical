@@ -217,7 +217,7 @@ class IndentationLexical( newlineBeforeIndent: Boolean, newlineAfterDedent: Bool
 
 		val line = p.line
 
-		protected val lineContents = p.longString.split( "\n" )(0)
+		protected lazy val lineContents = p.longString.split( "\n" )(0)
 	}
 	
 	private object IndentationParser extends Parser[Token]
