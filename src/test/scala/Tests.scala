@@ -35,6 +35,14 @@ class Tests extends FreeSpec with PropertyChecks with Matchers
 		l scan "\n1\n2" shouldBe List(num("1"), nl, num("2"), nl)
 		l scan "\n1\n" shouldBe List(num("1"), nl)
 		l scan "\n1\n2\n" shouldBe List(num("1"), nl, num("2"), nl)
+
+    l scan "1\r\n2" shouldBe List(num("1"), nl, num("2"), nl)
+    l scan "1\r\n" shouldBe List(num("1"), nl)
+    l scan "1\r\n2\r\n" shouldBe List(num("1"), nl, num("2"), nl)
+    l scan "\r\n1" shouldBe List(num("1"), nl)
+    l scan "\r\n1\r\n2" shouldBe List(num("1"), nl, num("2"), nl)
+    l scan "\r\n1\r\n" shouldBe List(num("1"), nl)
+    l scan "\r\n1\r\n2\r\n" shouldBe List(num("1"), nl, num("2"), nl)
 	}
 
 	"indentation" in

@@ -1,18 +1,14 @@
 name := "indentation-lexical"
 
-version := "0.8.1"
+version := "0.8.2"
 
-scalaVersion := "2.12.3"
+scalaVersion := "2.12.5"
 
 crossScalaVersions := Seq( "2.11.11" )
 
 scalacOptions ++= Seq( "-deprecation", "-feature", "-language:postfixOps", "-language:implicitConversions", "-language:existentials" )
 
-incOptions := incOptions.value.withNameHashing(true)
-
 organization := "xyz.hyperreal"
-
-incOptions := incOptions.value.withNameHashing( true )
 
 organization := "xyz.hyperreal"
 
@@ -33,7 +29,7 @@ libraryDependencies ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-	"xyz.hyperreal" %% "lia" % "0.21.1" % "test"
+	"xyz.hyperreal" %% "lia" % "0.22.2" % "test"
 )
 
 mainClass in (Compile, run) := Some( "xyz.hyperreal." + name.value + ".Main" )
@@ -48,7 +44,7 @@ licenses := Seq("MIT" -> url("http://opensource.org/licenses/MIT"))
 
 homepage := Some(url("https://github.com/edadma/" + name.value))
 
-pomExtra := (
+pomExtra :=
   <scm>
     <url>git@github.com:edadma/{name.value}.git</url>
     <connection>scm:git:git@github.com:edadma/{name.value}.git</connection>
@@ -59,4 +55,4 @@ pomExtra := (
       <name>Edward A. Maxedon, Sr.</name>
       <url>https://github.com/edadma</url>
     </developer>
-  </developers>)
+  </developers>

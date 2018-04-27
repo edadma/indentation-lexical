@@ -56,7 +56,7 @@ class IndentationLexical( newlineBeforeIndent: Boolean, newlineAfterDedent: Bool
 		else
 			skip( r.rest, pred )
 			
-	private def skipSpace( r: Input ) = skip( r, a => a.atEnd || a.first != '\t' && a.first != ' ' )
+	private def skipSpace( r: Input ) = skip( r, a => a.atEnd || a.first != '\t' && a.first != ' ' && a.first != '\r' )
 
 	private def skipToEOL( r: Input ) = skip( r, a => a.atEnd || a.first == '\n' )
 
