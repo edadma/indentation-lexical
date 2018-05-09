@@ -1,15 +1,12 @@
 package xyz.hyperreal.indentation_lexical
 
-import collection.immutable.PagedSeq
-import util.parsing.input.PagedSeqReader
+import util.parsing.input.{PagedSeq, PagedSeqReader}
 
 
-object Main extends App
-{
+object Main extends App {
 	val p = new ToyParser
 
-	p.parse( new PagedSeqReader(PagedSeq.fromFile("test")) ) match
-	{
+	p.parse( new PagedSeqReader(PagedSeq.fromFile("test")) ) match {
 		case p.Success( tree, _ ) => println( ToyInterpreter(tree) )
 		case p.NoSuccess( error, rest ) => println( error + "\n" + rest.pos.longString )
 	}

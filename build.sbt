@@ -1,8 +1,8 @@
 name := "indentation-lexical"
 
-version := "0.8.2"
+version := "0.8.3"
 
-scalaVersion := "2.12.5"
+scalaVersion := "2.12.6"
 
 crossScalaVersions := Seq( "2.11.11" )
 
@@ -19,12 +19,12 @@ resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/release
 resolvers += "Hyperreal Repository" at "https://dl.bintray.com/edadma/maven"
 
 libraryDependencies ++= Seq(
-	"org.scalatest" %% "scalatest" % "3.0.0" % "test",
-	"org.scalacheck" %% "scalacheck" % "1.13.4" % "test"
+  "org.scalatest" %% "scalatest" % "3.0.5" % "test",
+  "org.scalacheck" %% "scalacheck" % "1.14.0" % "test"
 )
 
 libraryDependencies ++= Seq(
-	"org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.6"
+	"org.scala-lang.modules" %% "scala-parser-combinators" % "1.1.0"
 //	"org.scala-lang.modules" %% "scala-swing" % "1.0.2"
 )
 
@@ -40,7 +40,7 @@ publishArtifact in Test := false
 
 pomIncludeRepository := { _ => false }
 
-licenses := Seq("MIT" -> url("http://opensource.org/licenses/MIT"))
+licenses := Seq("ISC" -> url("https://opensource.org/licenses/ISC"))
 
 homepage := Some(url("https://github.com/edadma/" + name.value))
 
