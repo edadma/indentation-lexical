@@ -4,8 +4,6 @@ version := "0.8.3"
 
 scalaVersion := "2.12.7"
 
-crossScalaVersions := Seq( "2.11.11" )
-
 scalacOptions ++= Seq( "-deprecation", "-feature", "-language:postfixOps", "-language:implicitConversions", "-language:existentials" )
 
 organization := "xyz.hyperreal"
