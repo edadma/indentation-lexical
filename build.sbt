@@ -1,8 +1,8 @@
 name := "indentation-lexical"
 
-version := "0.8.3"
+version := "0.9"
 
-scalaVersion := "2.12.7"
+scalaVersion := "2.13.0"
 
 scalacOptions ++= Seq( "-deprecation", "-feature", "-language:postfixOps", "-language:implicitConversions", "-language:existentials" )
 
@@ -17,17 +17,17 @@ resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/release
 resolvers += "Hyperreal Repository" at "https://dl.bintray.com/edadma/maven"
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest" % "3.0.5" % "test",
+  "org.scalatest" %% "scalatest" % "3.0.8" % "test",
   "org.scalacheck" %% "scalacheck" % "1.14.0" % "test"
 )
 
 libraryDependencies ++= Seq(
-	"org.scala-lang.modules" %% "scala-parser-combinators" % "1.1.0"
+	"org.scala-lang.modules" %% "scala-parser-combinators" % "1.1.2"
 //	"org.scala-lang.modules" %% "scala-swing" % "1.0.2"
 )
 
 libraryDependencies ++= Seq(
-	"xyz.hyperreal" %% "lia" % "0.22.2" % "test"
+	"xyz.hyperreal" %% "lia" % "0.23" % "test"
 )
 
 mainClass in (Compile, run) := Some( "xyz.hyperreal." + name.value + ".Main" )
