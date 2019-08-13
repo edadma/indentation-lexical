@@ -60,8 +60,8 @@ class ToyParser extends StandardTokenParsers with PackratParsers
 					case Some( exponent ) => exponent
 				}
 
-			reserved += ("if", "then", "else", "elif", "true", "false", "or", "and", "not")
-			delimiters += ("+", "*", "-", "/", "^", "(", ")", "[", "]", ",", "=", "==", "/=", "<", ">", "<=", ">=")
+			reserved ++= List( "if", "then", "else", "elif", "true", "false", "or", "and", "not" )
+			delimiters ++= List( "+", "*", "-", "/", "^", "(", ")", "[", "]", ",", "=", "==", "/=", "<", ">", "<=", ">=" )
 		}
 
 	def parse( r: Reader[Char] ) = phrase( source )( lexical.read(r) )
@@ -91,11 +91,11 @@ class ToyParser extends StandardTokenParsers with PackratParsers
 
 	lazy val expr7 =
 		expr7a ~ rep("or" ~ expr7a) ^^
-			{case lhs ~ list => (lhs /: list){case (x, op ~ y) => (op, (x, y))}}
+			{case lhs ~ list => (list foldLeft lhs){case (x, op ~ y) => (op, (x, y))}}
 
 	lazy val expr7a =
 		expr7b ~ rep("and" ~ expr7b) ^^
-			{case lhs ~ list => (lhs /: list){case (x, op ~ y) => (op, (x, y))}}
+			{case lhs ~ list => (list foldLeft lhs){case (x, op ~ y) => (op, (x, y))}}
 
 	lazy val expr7b: PackratParser[Any] =
 		"not" ~ expr7b ^^ {case op ~ e => (op, e)} |

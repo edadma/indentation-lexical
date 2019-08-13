@@ -3,10 +3,10 @@ package xyz.hyperreal.indentation_lexical
 import util.parsing.input.CharSequenceReader
 
 import org.scalatest._
-import prop.PropertyChecks
+import org.scalatestplus.scalacheck.ScalaCheckPropertyChecks
 
 
-class Tests extends FreeSpec with PropertyChecks with Matchers
+class Tests extends FreeSpec with ScalaCheckPropertyChecks with Matchers
 {
 	val l = new IndentationLexical( false, true, List("[", "("), List("]", ")"), ";;", "/*", "*/" )
 

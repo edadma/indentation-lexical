@@ -28,8 +28,8 @@ object ToyInterpreter
 		e match
 		{
 			case ("#assign", (v: String, e)) => vars(v) = eval( e )
-			case ("#if", c, t, ei: List[(Any, Any)], e: Option[Any]) =>
-				((c, t) +: ei) find (i => beval(i._1)) match
+			case ("#if", c, t, ei: List[_], e: Option[Any]) =>
+				((c, t) +: ei.asInstanceOf[List[(Any, Any)]]) find (i => beval(i._1)) match
 				{
 					case Some( (_, t) ) => eval( t )
 					case None =>
@@ -43,7 +43,7 @@ object ToyInterpreter
 			case ("decimal", List(a)) => Math.toBigDecimal( neval(a) )
 			case ("#var", v: String) => vars(v)
 			case (o @ ("+" | "-" | "*" | "/" | "^" | "=="), (l, r)) => Math( Symbol(o.asInstanceOf[String]), eval(l), eval(r) )
-			case ("-", e) => Math( '-, eval(e) )
+			case ("-", e) => Math( Symbol("-"), eval(e) )
 			case ("#list", l: List[Any]) =>
 				val buf = new ListBuffer[Any]
 
