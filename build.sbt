@@ -1,16 +1,12 @@
 name := "indentation-lexical"
 
-version := "0.9"
+version := "0.9.1"
 
-scalaVersion := "2.13.0"
+scalaVersion := "2.13.1"
 
 scalacOptions ++= Seq( "-deprecation", "-feature", "-language:postfixOps", "-language:implicitConversions", "-language:existentials" )
 
 organization := "xyz.hyperreal"
-
-organization := "xyz.hyperreal"
-
-//resolvers += Resolver.sonatypeRepo( "snapshots" )
 
 resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
 
@@ -38,7 +34,7 @@ publishArtifact in Test := false
 
 pomIncludeRepository := { _ => false }
 
-licenses := Seq("ISC" -> url("https://opensource.org/licenses/ISC"))
+licenses := Seq("ISC" -> url("https://opensource.org/licenses/isc"))
 
 homepage := Some(url("https://github.com/edadma/" + name.value))
 

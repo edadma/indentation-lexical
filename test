@@ -1,7 +1,0 @@
-a = 3 ;; asdf
-b = 4
-c =
-	if a + b == 7 then
-		5a
-
-c
